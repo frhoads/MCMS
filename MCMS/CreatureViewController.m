@@ -40,12 +40,19 @@
         nameTextField.alpha = 0;
         [sender setTitle:@"Edit" forState:UIControlStateNormal];
         saveButton.hidden = YES;
+        description.selectable = NO;
+        description.editable = NO;
+        description.backgroundColor = [UIColor whiteColor];
+
     }else{
         isEditMode = YES;
         name.alpha = 0;
         nameTextField.alpha = 1;
         nameTextField.text= name.text;
         saveButton.hidden = NO;
+        description.selectable = YES;
+        description.editable = YES;
+        description.backgroundColor = [UIColor lightGrayColor];
         [sender setTitle:@"Cancel" forState:UIControlStateNormal];
     }
     [nameTextField resignFirstResponder];
@@ -53,13 +60,17 @@
 
 - (IBAction)onSaveButtonPressed:(id)sender
 {
+    creature.description = description.text;
     creature.name = nameTextField.text;
     [nameTextField resignFirstResponder];
     name.text = nameTextField.text;
     [editButton setTitle:@"Edit" forState:UIControlStateNormal];
     saveButton.hidden = YES;
+    description.backgroundColor = [UIColor whiteColor];
     name.alpha = 1;
     nameTextField.alpha = 0;
+    description.selectable = NO;
+    description.editable = NO;
     isEditMode = NO;
 }
 
