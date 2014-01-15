@@ -55,7 +55,7 @@
     [myTableView reloadData];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     [myTableView reloadData];
 }
